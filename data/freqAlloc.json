@@ -1,0 +1,246 @@
+[
+  {
+    "bandName": "2,200 Meters (135 kHz)",
+    "bounds": {
+      "lower": 0.1357,
+      "upper": 0.1378
+    },
+    "notes": [
+      "1 W EIRP maximum"
+    ],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 0.1357,
+          "upper": 0.1378
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": ["RTTY", "data", "phone", "image", "CW"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "630 Meters (472 kHz)",
+    "bounds": {
+      "lower": 0.472,
+      "upper": 0.479
+    },
+    "notes": [
+      "5 W EIRP maximum, except in Alaska within 496 miles of Russia where the power limit is 1 W EIRP.",
+      "Amateurs cannot use these frequencies until 30 days after the Report and Order is published in the Federal Register and the final procedures for registering stations with the Utilities Telecoms Council (UTC) have been approved and announced."
+    ],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 0.472,
+          "upper": 0.479
+        },
+        "restrictions": [
+          {
+            "minClass": 10,
+            "modes": ["RTTY", "data", "phone", "image", "CW"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "160 Meters (1.8 MHz)",
+    "bounds": {
+      "lower": 1.800,
+      "upper": 1.900
+    },
+    "notes": [
+      "Avoid interference to radiolocation operations from 1.900 to 2.000 MHz"
+    ],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 1.800,
+          "upper": 1.900
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": ["RTTY", "data", "phone", "image", "CW"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "80 Meters (3.5 MHz)",
+    "bounds": {
+      "lower": 3.500,
+      "upper": 4.000
+    },
+    "notes": [],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 3.500,
+          "upper": 3.525
+        },
+        "restrictions": [
+          {
+            "minClass": 5,
+            "modes": ["RTTY", "data", "CW"]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 3.525,
+          "upper": 3.600
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": ["RTTY", "data", "CW"]
+          },
+          {
+            "minClass": 1,
+            "modes": ["CW"],
+            "notes": ["200 W"]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 3.600,
+          "upper": 3.700
+        },
+        "restrictions": [
+          {
+            "minClass": 5,
+            "modes": ["phone", "image", "CW"]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 3.700,
+          "upper": 3.800
+        },
+        "restrictions": [
+          {
+            "minClass": 4,
+            "modes": ["phone", "image", "CW"]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 3.800,
+          "upper": 4.000
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": ["phone", "image", "CW"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "40 Meters (7 MHz)",
+    "bounds": {
+      "lower": 7.000,
+      "upper": 7.300
+    },
+    "notes": [
+      "See Sections 97.305(c), 97.307(f)(11) and 97.301(e). These exemptions do not apply to stations in the continental US."
+    ],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 7.000,
+          "upper": 7.025
+        },
+        "restrictions": [
+          {
+            "minClass": 5,
+            "modes": ["RTTY", "data", "CW"]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 7.025,
+          "upper": 7.075
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": ["RTTY", "data", "CW"]
+          },
+          {
+            "minClass": 1,
+            "modes": ["CW"]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 7.075,
+          "upper": 7.100
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": ["RTTY", "data", "CW"]
+          },
+          {
+            "minClass": 2,
+            "modes": ["CW"]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 7.100,
+          "upper": 7.125
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": ["RTTY", "data", "CW"]
+          },
+          {
+            "minClass": 1,
+            "modes": ["CW"]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 7.125,
+          "upper": 7.175
+        },
+        "restrictions": [
+          {
+            "minClass": 4,
+            "modes": ["phone", "image", "CW"]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 7.175,
+          "upper": 7.300
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": ["phone", "image", "CW"]
+          }
+        ]
+      }
+    ]
+  }
+]
