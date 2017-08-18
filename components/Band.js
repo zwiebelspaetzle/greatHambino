@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {ScrollView, StyleSheet, View, Text} from 'react-native';
+import BandBar from './BandBar';
 
 class Band extends Component {
   render() {
-    let totalBandWidth = this.props.info.bounds.upper - this.props.info.bounds.lower;
-    let subBandComps = this.props.info.subBands.map((sub, key) => {
+    let totalBandWidth = this.props.band.bounds.upper - this.props.band.bounds.lower;
+    let subBandComps = this.props.band.subBands.map((sub, key) => {
       let subBandWidth = sub.bounds.upper - sub.bounds.lower;
       let basis = (subBandWidth / totalBandWidth) * 100;
       return sub.restrictions[0].modes.map((mode) => {
@@ -15,16 +16,13 @@ class Band extends Component {
           }]}></View>;
       });
     });
-    console.log('sbc', subBandComps);
     return (
       <View style={styles.container}>
-        <Text>{this.props.info.bandName}</Text>
-        <View style={styles.barContainer}>
-          {subBandComps}
-        </View>
+        <Text>{this.props.band.bandName}</Text>
+        <BandBar band={this.props.band} />
         <View style={styles.freqContainer}>
-          <Text style={styles.freqText}>{this.props.info.bounds.lower}</Text>
-          <Text style={styles.freqText}>{this.props.info.bounds.upper}</Text>
+          <Text style={styles.freqText}>{this.props.band.bounds.lower}</Text>
+          <Text style={styles.freqText}>{this.props.band.bounds.upper}</Text>
         </View>
       </View>
     );
@@ -32,16 +30,15 @@ class Band extends Component {
 }
 
 const styles = StyleSheet.create({
-  barContainer: {
+  bandBar: {
     borderWidth: 1,
     display: 'flex',
-    flexDirection: 'row',
-    height: 10,
+    height: 20,
     marginBottom: 5,
     marginTop: 5,
     padding: 0
   },
-  barSubContainer: {
+  subBand: {
     backgroundColor: 'red'
   },
   container: {

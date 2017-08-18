@@ -6,7 +6,7 @@ import freqAlloc from '../data/freqAlloc.json';
 class BandPlanPage extends Component {
   render() {
     let bandsComponents = freqAlloc.map((band, key) => {
-      return <Band info={band} key={key}/>;
+      return <Band band={band} key={key}/>;
     });
     return (
       <View style={styles.pageContainer}>
