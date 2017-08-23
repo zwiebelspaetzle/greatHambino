@@ -19,7 +19,7 @@ class Band extends Component {
     return (
       <View style={styles.container}>
         <Text>{this.props.band.bandName}</Text>
-        <BandBar band={this.props.band} />
+        <BandBar band={this.props.band} currentLicense={this.props.currentLicense}/>
         <View style={styles.freqContainer}>
           <Text style={styles.freqText}>{this.props.band.bounds.lower}</Text>
           <Text style={styles.freqText}>{this.props.band.bounds.upper}</Text>
@@ -37,9 +37,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginTop: 5,
     padding: 0
-  },
-  subBand: {
-    backgroundColor: 'red'
   },
   container: {
     alignItems: 'stretch',

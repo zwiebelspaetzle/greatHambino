@@ -100,7 +100,7 @@
         "restrictions": [
           {
             "minClass": 3,
-            "modes": ["RTTY", "data", "CW"]
+            "modes": ["RTTY", "data"]
           },
           {
             "minClass": 1,
@@ -177,7 +177,7 @@
         "restrictions": [
           {
             "minClass": 3,
-            "modes": ["RTTY", "data", "CW"]
+            "modes": ["RTTY", "data"]
           },
           {
             "minClass": 1,
@@ -193,10 +193,10 @@
         "restrictions": [
           {
             "minClass": 3,
-            "modes": ["RTTY", "data", "CW"]
+            "modes": ["RTTY", "data"]
           },
           {
-            "minClass": 2,
+            "minClass": 1,
             "modes": ["CW"]
           }
         ]
@@ -209,7 +209,7 @@
         "restrictions": [
           {
             "minClass": 3,
-            "modes": ["RTTY", "data", "CW"]
+            "modes": ["RTTY", "data"]
           },
           {
             "minClass": 1,

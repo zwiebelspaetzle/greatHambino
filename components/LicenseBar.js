@@ -3,7 +3,7 @@ import {ScrollView, StyleSheet, View, Text} from 'react-native';
 
 class LicenseBar extends Component {
   render() {
-    let modes = this.props.restriction.modes.map((mode, key) => {
+    let modes = this.props.modes.map((mode, key) => {
       return <View key={key} style={[styles.modeBar, {backgroundColor: modeColors[mode]}]}></View>
     });
 
@@ -17,17 +17,17 @@ class LicenseBar extends Component {
 
 const styles = StyleSheet.create({
   licenseBar: {
-    backgroundColor: 'red',
     borderBottomWidth: 1,
     borderColor: 'gray',
     borderTopWidth: 1,
     display: 'flex',
     flexDirection: 'column',
-    height: 20,
+    minHeight: 10,
     // flexGrow: 1,
   },
   modeBar: {
     flexGrow: 1,
+    height: 10
   }
 });
 

@@ -9,7 +9,7 @@ class BandBar extends Component {
       let subBandWidth = sub.bounds.upper - sub.bounds.lower;
       sub.percentOfBand = (subBandWidth / totalBandWidth) * 100;
 
-      return <SubBandBar key={key} subBand={sub}></SubBandBar>;
+      return <SubBandBar key={key} subBand={sub} currentLicense={this.props.currentLicense}></SubBandBar>;
     });
 
     return (
