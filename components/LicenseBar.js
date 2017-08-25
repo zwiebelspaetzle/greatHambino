@@ -22,16 +22,16 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     display: 'flex',
     flexDirection: 'column',
-    minHeight: 10,
-    // flexGrow: 1,
+    minHeight: 20,
+    flexGrow: 1,
   },
   modeBar: {
     flexGrow: 1,
-    height: 10
+    // height: 10
   }
 });
 
-const colors = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f'];
+const colors = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f', "pink"];
 const modes = [
   "RTTY",
   "data",
@@ -39,7 +39,8 @@ const modes = [
   "image",
   "SSB",
   "USB",
-  "CW"
+  "CW",
+  "forwarding"
 ];
 var modeColors = {};
 for (var i in modes) {

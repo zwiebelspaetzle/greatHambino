@@ -16,8 +16,14 @@
         },
         "restrictions": [
           {
-            "minClass": 3,
-            "modes": ["RTTY", "data", "phone", "image", "CW"]
+            "minClass": 10,
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ]
           }
         ]
       }
@@ -42,7 +48,13 @@
         "restrictions": [
           {
             "minClass": 10,
-            "modes": ["RTTY", "data", "phone", "image", "CW"]
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ]
           }
         ]
       }
@@ -51,8 +63,8 @@
   {
     "bandName": "160 Meters (1.8 MHz)",
     "bounds": {
-      "lower": 1.800,
-      "upper": 1.900
+      "lower": 1.8,
+      "upper": 1.9
     },
     "notes": [
       "Avoid interference to radiolocation operations from 1.900 to 2.000 MHz"
@@ -60,13 +72,19 @@
     "subBands": [
       {
         "bounds": {
-          "lower": 1.800,
-          "upper": 1.900
+          "lower": 1.8,
+          "upper": 1.9
         },
         "restrictions": [
           {
             "minClass": 3,
-            "modes": ["RTTY", "data", "phone", "image", "CW"]
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ]
           }
         ]
       }
@@ -75,73 +93,96 @@
   {
     "bandName": "80 Meters (3.5 MHz)",
     "bounds": {
-      "lower": 3.500,
-      "upper": 4.000
+      "lower": 3.5,
+      "upper": 4
     },
     "notes": [],
     "subBands": [
       {
         "bounds": {
-          "lower": 3.500,
+          "lower": 3.5,
           "upper": 3.525
         },
         "restrictions": [
           {
             "minClass": 5,
-            "modes": ["RTTY", "data", "CW"]
+            "modes": [
+              "RTTY",
+              "data",
+              "CW"
+            ]
           }
         ]
       },
       {
         "bounds": {
           "lower": 3.525,
-          "upper": 3.600
+          "upper": 3.6
         },
         "restrictions": [
           {
             "minClass": 3,
-            "modes": ["RTTY", "data"]
+            "modes": [
+              "RTTY",
+              "data"
+            ]
           },
           {
             "minClass": 1,
-            "modes": ["CW"],
-            "notes": ["200 W"]
+            "modes": [
+              "CW"
+            ],
+            "notes": [
+              "200 W"
+            ]
           }
         ]
       },
       {
         "bounds": {
-          "lower": 3.600,
-          "upper": 3.700
+          "lower": 3.6,
+          "upper": 3.7
         },
         "restrictions": [
           {
             "minClass": 5,
-            "modes": ["phone", "image", "CW"]
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
           }
         ]
       },
       {
         "bounds": {
-          "lower": 3.700,
-          "upper": 3.800
+          "lower": 3.7,
+          "upper": 3.8
         },
         "restrictions": [
           {
             "minClass": 4,
-            "modes": ["phone", "image", "CW"]
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
           }
         ]
       },
       {
         "bounds": {
-          "lower": 3.800,
-          "upper": 4.000
+          "lower": 3.8,
+          "upper": 4
         },
         "restrictions": [
           {
             "minClass": 3,
-            "modes": ["phone", "image", "CW"]
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
           }
         ]
       }
@@ -150,8 +191,8 @@
   {
     "bandName": "40 Meters (7 MHz)",
     "bounds": {
-      "lower": 7.000,
-      "upper": 7.300
+      "lower": 7,
+      "upper": 7.3
     },
     "notes": [
       "See Sections 97.305(c), 97.307(f)(11) and 97.301(e). These exemptions do not apply to stations in the continental US."
@@ -159,13 +200,17 @@
     "subBands": [
       {
         "bounds": {
-          "lower": 7.000,
+          "lower": 7,
           "upper": 7.025
         },
         "restrictions": [
           {
             "minClass": 5,
-            "modes": ["RTTY", "data", "CW"]
+            "modes": [
+              "RTTY",
+              "data",
+              "CW"
+            ]
           }
         ]
       },
@@ -177,43 +222,58 @@
         "restrictions": [
           {
             "minClass": 3,
-            "modes": ["RTTY", "data"]
+            "modes": [
+              "RTTY",
+              "data"
+            ]
           },
           {
             "minClass": 1,
-            "modes": ["CW"]
+            "modes": [
+              "CW"
+            ]
           }
         ]
       },
       {
         "bounds": {
           "lower": 7.075,
-          "upper": 7.100
+          "upper": 7.1
         },
         "restrictions": [
           {
             "minClass": 3,
-            "modes": ["RTTY", "data"]
+            "modes": [
+              "RTTY",
+              "data"
+            ]
           },
           {
             "minClass": 1,
-            "modes": ["CW"]
+            "modes": [
+              "CW"
+            ]
           }
         ]
       },
       {
         "bounds": {
-          "lower": 7.100,
+          "lower": 7.1,
           "upper": 7.125
         },
         "restrictions": [
           {
             "minClass": 3,
-            "modes": ["RTTY", "data"]
+            "modes": [
+              "RTTY",
+              "data"
+            ]
           },
           {
             "minClass": 1,
-            "modes": ["CW"]
+            "modes": [
+              "CW"
+            ]
           }
         ]
       },
@@ -225,19 +285,624 @@
         "restrictions": [
           {
             "minClass": 4,
-            "modes": ["phone", "image", "CW"]
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
           }
         ]
       },
       {
         "bounds": {
           "lower": 7.175,
-          "upper": 7.300
+          "upper": 7.3
         },
         "restrictions": [
           {
             "minClass": 3,
-            "modes": ["phone", "image", "CW"]
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "30 Meters (10.1 MHz)",
+    "bounds": {
+      "lower": 10.1,
+      "upper": 10.15
+    },
+    "notes": [
+      "Avoid interference to fixed services outside the US.",
+      "200 Watts PEP"
+    ],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 10.1,
+          "upper": 10.15
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "RTTY",
+              "data",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "20 Meters (14 MHz)",
+    "bounds": {
+      "lower": 14,
+      "upper": 14.35
+    },
+    "notes": [],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 14,
+          "upper": 14.025
+        },
+        "restrictions": [
+          {
+            "minClass": 5,
+            "modes": [
+              "RTTY",
+              "data",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 14.025,
+          "upper": 14.15
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "RTTY",
+              "data",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 14.15,
+          "upper": 14.175
+        },
+        "restrictions": [
+          {
+            "minClass": 5,
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 14.175,
+          "upper": 14.225
+        },
+        "restrictions": [
+          {
+            "minClass": 4,
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 14.225,
+          "upper": 14.35
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "17 Meters (18 MHz)",
+    "bounds": {
+      "lower": 18.068,
+      "upper": 18.168
+    },
+    "notes": [],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 18.068,
+          "upper": 18.11
+        },
+        "restrictions": [
+          {
+            "minClass": 5,
+            "modes": [
+              "RTTY",
+              "data",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 18.11,
+          "upper": 18.168
+        },
+        "restrictions": [
+          {
+            "minClass": 5,
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "15 Meters (21 MHz)",
+    "bounds": {
+      "lower": 21,
+      "upper": 21.45
+    },
+    "notes": [],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 21,
+          "upper": 21.025
+        },
+        "restrictions": [
+          {
+            "minClass": 5,
+            "modes": [
+              "RTTY",
+              "data",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 21.025,
+          "upper": 21.2
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "RTTY",
+              "data"
+            ]
+          },
+          {
+            "minClass": 1,
+            "modes": [
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 21.2,
+          "upper": 21.225
+        },
+        "restrictions": [
+          {
+            "minClass": 5,
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 21.225,
+          "upper": 21.275
+        },
+        "restrictions": [
+          {
+            "minClass": 4,
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 21.275,
+          "upper": 21.45
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "12 Meters (24 MHz)",
+    "bounds": {
+      "lower": 24.89,
+      "upper": 24.99
+    },
+    "notes": [],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 24.89,
+          "upper": 24.93
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "RTTY",
+              "data",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 24.93,
+          "upper": 24.99
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "6 Meters (50 MHz)",
+    "bounds": {
+      "lower": 50,
+      "upper": 54
+    },
+    "notes": [],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 50,
+          "upper": 50.1
+        },
+        "restrictions": [
+          {
+            "minClass": 2,
+            "modes": [
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 50.1,
+          "upper": 54
+        },
+        "restrictions": [
+          {
+            "minClass": 2,
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "2 Meters (144 MHz)",
+    "bounds": {
+      "lower": 144.0,
+      "upper": 148.0
+    },
+    "notes": [],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 144.0,
+          "upper": 144.1
+        },
+        "restrictions": [
+          {
+            "minClass": 2,
+            "modes": [
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 144.1,
+          "upper": 148
+        },
+        "restrictions": [
+          {
+            "minClass": 2,
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "1.25 Meters (222 MHz)",
+    "bounds": {
+      "lower": 219.0,
+      "upper": 225.0
+    },
+    "notes": [],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 219.0,
+          "upper": 220.0
+        },
+        "restrictions": [
+          {
+            "minClass": 2,
+            "modes": [
+              "forwarding"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 220.0,
+          "upper": 222.0
+        },
+        "restrictions": [
+          {
+            "minClass": 10,
+            "modes": [
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 222.0,
+          "upper": 225.0
+        },
+        "restrictions": [
+          {
+            "minClass": 2,
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ],
+            "notes": ["Novice license limited to 25 W."]
+          },
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "70 cm (420 MHz)",
+    "bounds": {
+      "lower": 420.0,
+      "upper": 450.0
+    },
+    "notes": [
+      "Geographical and power restrictions may apply.  See The ARRL Operating Manual for information about your area."
+    ],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 420.0,
+          "upper": 450.0
+        },
+        "restrictions": [
+          {
+            "minClass": 2,
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "33 cm (902 MHz)",
+    "bounds": {
+      "lower": 902.0,
+      "upper": 928.0
+    },
+    "notes": [
+      "Geographical and power restrictions may apply.  See The ARRL Operating Manual for information about your area."
+    ],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 902.0,
+          "upper": 928.0
+        },
+        "restrictions": [
+          {
+            "minClass": 2,
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "23 cm (1240 MHz)",
+    "bounds": {
+      "lower": 1240,
+      "upper": 1300
+    },
+    "notes": [
+      "Geographical and power restrictions may apply.  See The ARRL Operating Manual for information about your area."
+    ],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 1240,
+          "upper": 1270
+        },
+        "restrictions": [
+          {
+            "minClass": 2,
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 1270,
+          "upper": 1295
+        },
+        "restrictions": [
+          {
+            "minClass": 1,
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ],
+            "notes": [
+              "Novice license limited to 5 W."
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 1295,
+          "upper": 1300
+        },
+        "restrictions": [
+          {
+            "minClass": 2,
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "bandName": "33 cm (902 MHz)",
+    "bounds": {
+      "lower": 902.0,
+      "upper": 928.0
+    },
+    "notes": [
+      "Geographical and power restrictions may apply.  See The ARRL Operating Manual for information about your area."
+    ],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 902.0,
+          "upper": 928.0
+        },
+        "restrictions": [
+          {
+            "minClass": 2,
+            "modes": [
+              "RTTY",
+              "data",
+              "phone",
+              "image",
+              "CW"
+            ]
           }
         ]
       }

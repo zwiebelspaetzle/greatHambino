@@ -22,7 +22,7 @@ class Band extends Component {
         <BandBar band={this.props.band} currentLicense={this.props.currentLicense}/>
         <View style={styles.freqContainer}>
           <Text style={styles.freqText}>{this.props.band.bounds.lower}</Text>
-          <Text style={styles.freqText}>{this.props.band.bounds.upper}</Text>
+          <Text style={styles.freqText}>{this.props.band.bounds.upper} MHz</Text>
         </View>
       </View>
     );
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   freqText: {
-    fontSize: 12
+    fontSize: 10
   }
 });
 

@@ -6,12 +6,9 @@ class SubBandBar extends Component {
   render() {
     let modes = [];
     let licenses = this.props.subBand.restrictions.map((restriction, key) => {
-      console.log("minclass", restriction.minClass);
-      console.log("currentLinces", this.props.currentLicense);
       if (restriction.minClass <= this.props.currentLicense) {
         modes = modes.concat(restriction.modes);
       }
-      console.log('modes', modes);
     });
     return (
       <View style={[styles.subBandBar, {flexBasis: this.props.subBand.percentOfBand+'%'}]} >
