@@ -1,12 +1,10 @@
 import React from 'react';
-import { Platform } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Platform, Text } from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
+import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 import Colors from '../constants/Colors';
 
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import BandPlanScreen from '../screens/BandPlanScreen';
 
@@ -14,12 +12,6 @@ export default TabNavigator(
   {
     BandPlan: {
       screen: BandPlanScreen,
-    },
-    Home: {
-      screen: HomeScreen,
-    },
-    Links: {
-      screen: LinksScreen,
     },
     Settings: {
       screen: SettingsScreen,
@@ -31,34 +23,18 @@ export default TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
-          case 'Home':
-            iconName = Platform.OS === 'ios'
-              ? `ios-information-circle${focused ? '' : '-outline'}`
-              : 'md-information-circle';
-            break;
-          case 'Links':
-            iconName = Platform.OS === 'ios'
-              ? `ios-link${focused ? '' : '-outline'}`
-              : 'md-link';
-            break;
           case 'Settings':
-            iconName = Platform.OS === 'ios'
-              ? `ios-options${focused ? '' : '-outline'}`
-              : 'md-options';
+            iconName = 'gears';
             break;
           case 'BandPlan':
-          iconName = Platform.OS === 'ios'
-            ? `ios-list${focused ? '' : '-outline'}`
-            : 'md-list';
-          break;
+            iconName = 'list';
+            break;
         }
         return (
-          <Ionicons
-            name={iconName}
-            size={28}
-            style={{ marginBottom: -3 }}
+          <FontAwesome
+            style={{ fontSize: 20, marginBottom: -3 }}
             color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
-          />
+          >{Icons[iconName]}</FontAwesome>
         );
       },
       screenProps: "huh",
