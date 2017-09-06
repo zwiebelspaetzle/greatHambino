@@ -4,23 +4,15 @@ import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
 
-const RootStackNavigator = StackNavigator(
-  {
-    Main: {
-      screen: MainTabNavigator,
-    },
-  },
-  {
-    // navigationOptions: () => ({
-      headerTitleStyle: {
-        fontWeight: 'normal',
-      },
-      // headerStyle: 'none'
-    // }),
-  }
-);
+// const RootStackNavigator = StackNavigator(
+//   {
+//     Main: {
+//       screen: MainTabNavigator,
+//     },
+//   }
+// );
 
-export default class RootNavigator extends React.Component {
+export default class RootNavigation extends React.Component {
   state = {settings: {}};
 
   constructor() {
@@ -85,7 +77,7 @@ export default class RootNavigator extends React.Component {
 
   render() {
     return (
-      <RootStackNavigator
+      <MainTabNavigator
         screenProps={{
           "settings": this.state.settings,
           "onLicenseInput": this.handleLicenseInput

@@ -21,7 +21,7 @@ const BandPlanStackNavigator = StackNavigator(
   },
   // config
   {
-    // headerMode: 'float'
+    headerMode: 'float'
   }
 );
 
