@@ -22,6 +22,7 @@ class BandBar extends Component {
 
 const styles = StyleSheet.create({
   bandBar: {
+    borderWidth: 1,
     display: 'flex',
     flexDirection: 'row',
     marginBottom: 5,

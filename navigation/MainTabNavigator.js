@@ -6,16 +6,12 @@ import FontAwesome, { Icons } from 'react-native-fontawesome';
 import Colors from '../constants/Colors';
 
 import SettingsScreen from '../screens/SettingsScreen';
-import BandPlanScreen from '../screens/BandPlanScreen';
+import BandPlanStackNavigator from './BandPlanStackNavigator';
 
 export default TabNavigator(
   {
-    BandPlan: {
-      screen: BandPlanScreen,
-    },
-    Settings: {
-      screen: SettingsScreen,
-    },
+    BandPlan: { screen: BandPlanStackNavigator },
+    Settings: { screen: SettingsScreen },
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -37,11 +33,10 @@ export default TabNavigator(
           >{Icons[iconName]}</FontAwesome>
         );
       },
-      screenProps: "huh",
     }),
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
-    animationEnabled: false,
-    swipeEnabled: false,
+    animationEnabled: true,
+    swipeEnabled: true,
   }
 );

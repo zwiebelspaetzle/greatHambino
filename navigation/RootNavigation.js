@@ -11,11 +11,12 @@ const RootStackNavigator = StackNavigator(
     },
   },
   {
-    navigationOptions: () => ({
+    // navigationOptions: () => ({
       headerTitleStyle: {
         fontWeight: 'normal',
       },
-    }),
+      // headerStyle: 'none'
+    // }),
   }
 );
 
@@ -25,7 +26,6 @@ export default class RootNavigator extends React.Component {
   constructor() {
     super();
     this.handleLicenseInput = this.handleLicenseInput.bind(this);
-
   }
 
   componentDidMount() {

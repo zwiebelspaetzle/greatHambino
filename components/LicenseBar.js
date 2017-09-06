@@ -17,9 +17,7 @@ class LicenseBar extends Component {
 
 const styles = StyleSheet.create({
   licenseBar: {
-    borderBottomWidth: 1,
     borderColor: 'gray',
-    borderTopWidth: 1,
     display: 'flex',
     flexDirection: 'column',
     minHeight: 20,
@@ -27,7 +25,6 @@ const styles = StyleSheet.create({
   },
   modeBar: {
     flexGrow: 1,
-    // height: 10
   }
 });
 
