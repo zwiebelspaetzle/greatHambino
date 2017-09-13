@@ -40,7 +40,6 @@ class Band extends Component {
   }
 
   render() {
-    console.log(this.props.band.subBands)
     let totalBandWidth = this.props.band.bounds.upper - this.props.band.bounds.lower;
     this.props.band.subBands.map((sub, key) => {
       let subBandWidth = sub.bounds.upper - sub.bounds.lower;

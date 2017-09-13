@@ -13,38 +13,46 @@ export default class BandPlanScreen extends Component {
   render() {
     let license = this.props.screenProps.settings.license;
 
-    freqAlloc.map((band) => {
-      let prevSub = {licenseModes: null, bounds: null};
-      band.subBands.map((sub, key) => {
+    if (license) {
+      freqAlloc.map((band) => {
+        let prevSub = {licenseModes: null, bounds: null};
+        band.licenseCanUse = false;
+        band.subBands.map((sub, key) => {
+          // combine all privs for selected license
+          sub.licenseModes = [];
+          sub.restrictions.map((restriction) => {
+            if (restriction.minClass <= license) {
+              sub.licenseModes = sub.licenseModes.concat(restriction.modes);
+            }
+          });
 
-        sub.licenseModes = [];
-        sub.restrictions.map((restriction) => {
-          if (restriction.minClass <= license) {
-            sub.licenseModes = sub.licenseModes.concat(restriction.modes);
+          if (sub.licenseModes.length > 0) {
+            band.licenseCanUse = true;
           }
-        });
-        sub.licenseModes.sort();
 
-        if (license) {
           // if this sub has the same privs as the previous, merge the two
+          sub.licenseModes.sort();
           if (JSON.stringify(sub.licenseModes) == JSON.stringify(prevSub.licenseModes)) {
             sub.bounds.lower = prevSub.bounds.lower;
             delete(band.subBands[key-1]);
           }
-        }
-        prevSub = sub;
+
+          prevSub = sub;
+        });
       });
-    });
+    }
 
     let bandsComponents = freqAlloc.map((band, key) => {
-      return (
-        <TouchableOpacity key={key} onPress={() => this.props.navigation.navigate('BandDetails', {band: band})}>
-          <Band
-            band={band}
-            currentLicense={license}
-          />
-        </TouchableOpacity>
-      );
+      if (band.licenseCanUse) {
+        return (
+          <TouchableOpacity key={key} onPress={() => this.props.navigation.navigate('BandDetails', {band: band})}>
+            <Band
+              band={band}
+              currentLicense={license}
+            />
+          </TouchableOpacity>
+        );
+      }
     });
     return (
       <ScrollView style={styles.pageContainer}>
