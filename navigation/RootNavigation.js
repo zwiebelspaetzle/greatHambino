@@ -4,14 +4,6 @@ import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
 
-// const RootStackNavigator = StackNavigator(
-//   {
-//     Main: {
-//       screen: MainTabNavigator,
-//     },
-//   }
-// );
-
 export default class RootNavigation extends React.Component {
   state = {settings: {}};
 
@@ -20,12 +12,11 @@ export default class RootNavigation extends React.Component {
     this.handleLicenseInput = this.handleLicenseInput.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.fetchLicense();
   }
 
   async fetchLicense() {
-    console.log('fetchLicense');
     let license = 5;
 
     try {
@@ -37,24 +28,7 @@ export default class RootNavigation extends React.Component {
     } catch (error) {
       console.log('error retrieving saved license', error);
     }
-    console.log(license);
     this.setState({"settings": {"license": parseInt(license)}});
-  }
-
-  async getSetting() {
-    let license = 5;
-
-    try {
-      license = await AsyncStorage.getItem('GreatHambino:license');
-      if (license == null) {
-        license = 5;
-        console.log('defaulting license to 5');
-      }
-    } catch (error) {
-      console.log('error retrieving saved license', error);
-    }
-
-    return license;
   }
 
   async saveSetting(license) {

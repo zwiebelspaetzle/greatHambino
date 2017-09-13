@@ -3,27 +3,55 @@ import {ScrollView, StyleSheet, View, Text} from 'react-native';
 import BandBar from './BandBar';
 
 class Band extends Component {
+  getFreqTextDetailed() {
+    return (
+      <View style={styles.freqContainerDetailed}>
+        {
+          this.props.band.subBands.map((sub, key) => {
+            let last = (key == this.props.band.subBands.length-1);
+            return (
+              <View
+                key={key}
+                style={[
+                  styles.freqContainerDetailedTextView,
+                    {flexBasis: sub.percentOfBand+'%'},
+                    (last ? {borderRightWidth: 1} : null)
+                ]}>
+                <Text style={styles.freqText}>{sub.bounds.lower}</Text>
+                {last
+                  ? <Text style={[styles.freqText, styles.freqTextDetailed]}>{sub.bounds.upper}</Text>
+                  : null
+                }
+              </View>
+            );
+          })
+        }
+      </View>
+    );
+  }
+
+  getFreqTextSimple() {
+    return (
+      <View style={styles.freqContainerSimple}>
+        <Text style={styles.freqText}>{this.props.band.bounds.lower}</Text>
+        <Text style={styles.freqText}>{this.props.band.bounds.upper} MHz</Text>
+      </View>
+    );
+  }
+
   render() {
+    console.log(this.props.band.subBands)
     let totalBandWidth = this.props.band.bounds.upper - this.props.band.bounds.lower;
-    let subBandComps = this.props.band.subBands.map((sub, key) => {
+    this.props.band.subBands.map((sub, key) => {
       let subBandWidth = sub.bounds.upper - sub.bounds.lower;
-      let basis = (subBandWidth / totalBandWidth) * 100;
-      return sub.restrictions[0].modes.map((mode) => {
-        return <View style={[
-          styles.barSubContainer, {
-            backgroundColor: modeColors[mode],
-            flexBasis: basis+'%',
-          }]}></View>;
-      });
+      sub.percentOfBand = (subBandWidth / totalBandWidth) * 100;
     });
+
     return (
       <View style={styles.container}>
         <Text>{this.props.band.bandName}</Text>
         <BandBar band={this.props.band} currentLicense={this.props.currentLicense}/>
-        <View style={styles.freqContainer}>
-          <Text style={styles.freqText}>{this.props.band.bounds.lower}</Text>
-          <Text style={styles.freqText}>{this.props.band.bounds.upper} MHz</Text>
-        </View>
+        {(this.props.showDetails) ? this.getFreqTextDetailed() : this.getFreqTextSimple()}
       </View>
     );
   }
@@ -43,13 +71,30 @@ const styles = StyleSheet.create({
     display: 'flex',
     marginBottom: 10
   },
-  freqContainer: {
+  freqContainerDetailed: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  freqContainerDetailedTextView: {
+    alignItems: 'flex-end',
+    borderLeftWidth: 1,
+    display: 'flex',
+    flexDirection: 'row',
+    height: 20,
+    justifyContent: 'space-between',
+    paddingLeft: 2,
+    paddingRight: 2
+  },
+  freqContainerSimple: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
   freqText: {
     fontSize: 10
+  },
+  freqTextDetailed: {
+    fontSize: 9
   }
 });
 

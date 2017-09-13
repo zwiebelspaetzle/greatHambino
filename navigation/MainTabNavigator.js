@@ -11,7 +11,10 @@ import BandPlanStackNavigator from './BandPlanStackNavigator';
 export default TabNavigator(
   {
     BandPlan: {
-      screen: BandPlanStackNavigator
+      screen: BandPlanStackNavigator,
+      navigationOptions: {
+        tabBarLabel: "Band Plan",
+      }
     },
     Settings: {
       screen: SettingsScreen

@@ -4,11 +4,7 @@ import SubBandBar from './SubBandBar';
 
 class BandBar extends Component {
   render() {
-    let totalBandWidth = this.props.band.bounds.upper - this.props.band.bounds.lower;
     let subBands = this.props.band.subBands.map((sub, key) => {
-      let subBandWidth = sub.bounds.upper - sub.bounds.lower;
-      sub.percentOfBand = (subBandWidth / totalBandWidth) * 100;
-
       return <SubBandBar key={key} subBand={sub} currentLicense={this.props.currentLicense}></SubBandBar>;
     });
 
