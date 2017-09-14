@@ -11,7 +11,12 @@ export default class BandDetailsScreen extends Component {
     return this.props.navigation.state.params.band.subBands.map((sub, skey) => {
       return sub.restrictions.map((res, rkey) => {
         if (res.notes) {
-          return <Text>{sub.bounds.lower}-{sub.bounds.upper}MHz: {res.notes}</Text>;
+          return (
+            <View>
+              <Text style={{fontStyle: 'italic'}}>{sub.bounds.lower}-{sub.bounds.upper}MHz:</Text>
+              <Text>{res.notes}</Text>
+            </View>
+          );
         }
       });
     });
@@ -28,7 +33,7 @@ export default class BandDetailsScreen extends Component {
         />
         <ScrollView style={styles.notesContainer}>
           <Text style={styles.bold}>Notes</Text>
-          <Text>{band.notes}</Text>
+          {(band.notes.length > 0) ? <Text>{band.notes}</Text> : null}
           {this.getSubBandNotes()}
         </ScrollView>
       </View>
