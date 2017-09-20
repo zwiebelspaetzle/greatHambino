@@ -42,12 +42,12 @@ export const modes = {
   "image": {
     "color": colors[3]
   },
-  "SSB": {
-    "color": colors[4]
-  },
-  "USB": {
-    "color": colors[5]
-  },
+  // "SSB": {
+  //   "color": colors[4]
+  // },
+  // "USB": {
+  //   "color": colors[5]
+  // },
   "CW": {
     "color": colors[6]
   },

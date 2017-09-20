@@ -8,16 +8,23 @@ class Key extends Component {
   }
 
   getModesInBand() {
-    let modesInBand = [];
-    this.props.band.subBands.map((sub) => {
-      sub.licenseModes.map((mode) => {
-        if (!modesInBand.includes(mode)) {
-          modesInBand.push(mode);
-        }
+    if (this.props.band) {
+      // key for a specific band
+      let modesInBand = [];
+      this.props.band.subBands.map((sub) => {
+        sub.licenseModes.map((mode) => {
+          if (!modesInBand.includes(mode)) {
+            modesInBand.push(mode);
+          }
+        });
       });
-    });
+      return modesInBand;
+    } else {
+      // key for all bands
+      return Object.keys(modes);
+    }
 
-    return modesInBand;
+
   }
 
   render() {
@@ -40,10 +47,10 @@ class Key extends Component {
 const styles = StyleSheet.create({
   keyContainer: {
     borderWidth: 1,
+    borderColor: '#666',
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginBottom: 10,
     marginTop: 10,
     padding: 10,
   },

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {ScrollView, StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
 import Band from '../components/Band';
+import Key from '../components/Key';
 import BandDetailsScreen from '../screens/BandDetailsScreen';
 import freqAlloc from '../data/freqAlloc.json';
 
@@ -55,15 +56,29 @@ export default class BandPlanScreen extends Component {
       }
     });
     return (
-      <ScrollView style={styles.pageContainer}>
-        {bandsComponents}
-      </ScrollView>
+      <View style={styles.pageContainer}>
+        <ScrollView style={styles.bandsContainer}>
+          {bandsComponents}
+        </ScrollView>
+        <Key style={styles.key}></Key>
+      </View>
+
     );
   }
 }
 
 const styles = StyleSheet.create({
+  bandsContainer: {
+    borderBottomWidth: 1,
+    borderColor: '#666',
+    flexShrink: 1,
+  },
+  key: {
+  },
   pageContainer: {
-    margin: 20
+    display: 'flex',
+    flexShrink: 1,
+    margin: 20,
+    marginBottom: 10,
   }
 });
