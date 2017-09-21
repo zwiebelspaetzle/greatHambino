@@ -1,5 +1,5 @@
 import React from 'react';
-import { Picker, Text, View } from 'react-native';
+import { Picker, Switch, StyleSheet, Text, View } from 'react-native';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
@@ -9,15 +9,21 @@ export default class SettingsScreen extends React.Component {
   constructor(props) {
     super(props);
     this.handleLicenseInputChange = this.handleLicenseInputChange.bind(this);
+    this.handleShowInputChange = this.handleShowInputChange.bind(this);
   }
 
   handleLicenseInputChange(itemValue, itemIndex) {
-    this.props.screenProps.onLicenseInput(itemValue);
+    this.props.screenProps.onSettingInput('license', itemValue);
+  }
+
+  handleShowInputChange(itemValue) {
+    this.props.screenProps.onSettingInput('showUnusableBands', itemValue);
   }
 
   render() {
+    console.log(this.props.screenProps.settings);
     return (
-      <View>
+      <View style={styles.pageContainer}>
         <Text>License: </Text>
         <Picker
           selectedValue={this.props.screenProps.settings.license}
@@ -30,10 +36,25 @@ export default class SettingsScreen extends React.Component {
           }
         </Picker>
 
+        <Text>Show bands without privileges for current class</Text>
+        <Switch
+          value={this.props.screenProps.settings.showUnusableBands}
+          onValueChange={this.handleShowInputChange}
+        />
+
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  pageContainer: {
+    display: 'flex',
+    flexShrink: 1,
+    margin: 20,
+    marginBottom: 10,
+  }
+});
 
 const licenses = [
   {

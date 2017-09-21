@@ -5,15 +5,16 @@ import { StackNavigator } from 'react-navigation';
 import MainTabNavigator from './MainTabNavigator';
 
 export default class RootNavigation extends React.Component {
-  state = {settings: {}};
+  state = {settings: {license: 5, showUnusableBands: false}};
 
   constructor() {
     super();
-    this.handleLicenseInput = this.handleLicenseInput.bind(this);
+    this.handleSettingInput = this.handleSettingInput.bind(this);
   }
 
   componentWillMount() {
     this.fetchLicense();
+    this.fetchShowUnusableBands();
   }
 
   async fetchLicense() {
@@ -28,25 +29,46 @@ export default class RootNavigation extends React.Component {
     } catch (error) {
       console.log('error retrieving saved license', error);
     }
-    this.setState({"settings": {"license": parseInt(license)}});
+    let settings = this.state.settings;
+    settings.license = parseInt(license);
+    this.setState({settings: settings});
   }
 
-  async saveSetting(license) {
+  async fetchShowUnusableBands() {
+    let showUnusableBands = false;
+
+    try {
+      showUnusableBands = await AsyncStorage.getItem('GreatHambino:showUnusableBands');
+      if (showUnusableBands == null) {
+        showUnusableBands = false;
+        console.log('defaulting showUnusableBands to false');
+      }
+    } catch (error) {
+      console.log('error retrieving showUnusableBands', error);
+    }
+
+    let settings = this.state.settings;
+    showUnusableBands = (showUnusableBands == "true" || showUnusableBands == 1) ? true : false;
+    settings.showUnusableBands = showUnusableBands;
+    this.setState({settings: settings});
+  }
+
+  async saveSetting(key, value) {
     // save setting
     try {
-      await AsyncStorage.setItem('GreatHambino:license', String(license));
+      await AsyncStorage.setItem('GreatHambino:'+key, String(value));
     } catch (error) {
       console.log("error saving data", error);
     }
   }
 
-  handleLicenseInput(license) {
+  handleSettingInput(key, value) {
     // update screens
-    this.setState({
-      "settings": {"license": license}
-    });
+    let settings = this.state.settings;
+    settings[key] = value
+    this.setState({settings: settings});
 
-    this.saveSetting(license);
+    this.saveSetting(key, value);
   }
 
   render() {
@@ -54,7 +76,7 @@ export default class RootNavigation extends React.Component {
       <MainTabNavigator
         screenProps={{
           "settings": this.state.settings,
-          "onLicenseInput": this.handleLicenseInput
+          "onSettingInput": this.handleSettingInput
         }}
       />
     )

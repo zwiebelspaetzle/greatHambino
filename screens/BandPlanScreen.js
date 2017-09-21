@@ -17,7 +17,8 @@ export default class BandPlanScreen extends Component {
     if (license) {
       freqAlloc.map((band) => {
         let prevSub = {licenseModes: null, bounds: null};
-        band.licenseCanUse = false;
+        console.log('show', this.props.screenProps.settings.showUnusableBands);
+        band.licenseCanUse = (this.props.screenProps.settings.showUnusableBands) ? true : false;
         band.subBands.map((sub, key) => {
           // combine all privs for selected license
           sub.licenseModes = [];
@@ -57,6 +58,7 @@ export default class BandPlanScreen extends Component {
     });
     return (
       <View style={styles.pageContainer}>
+        <Text>License: {license}</Text>
         <ScrollView style={styles.bandsContainer}>
           {bandsComponents}
         </ScrollView>
