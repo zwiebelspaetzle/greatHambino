@@ -4,7 +4,7 @@ import {ScrollView, StyleSheet, View, Text, TouchableOpacity} from 'react-native
 import Band from '../components/Band';
 import Key from '../components/Key';
 import BandDetailsScreen from '../screens/BandDetailsScreen';
-import freqAlloc from '../data/freqAlloc.json';
+import getFreqAlloc from '../lib/getFreqAlloc';
 
 export default class BandPlanScreen extends Component {
   static navigationOptions = {
@@ -12,12 +12,12 @@ export default class BandPlanScreen extends Component {
   };
 
   render() {
+    let freqAlloc = getFreqAlloc();
     let license = this.props.screenProps.settings.license;
 
     if (license) {
       freqAlloc.map((band) => {
         let prevSub = {licenseModes: null, bounds: null};
-        console.log('show', this.props.screenProps.settings.showUnusableBands);
         band.licenseCanUse = (this.props.screenProps.settings.showUnusableBands) ? true : false;
         band.subBands.map((sub, key) => {
           // combine all privs for selected license

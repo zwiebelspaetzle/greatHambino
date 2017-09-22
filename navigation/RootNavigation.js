@@ -5,7 +5,7 @@ import { StackNavigator } from 'react-navigation';
 import MainTabNavigator from './MainTabNavigator';
 
 export default class RootNavigation extends React.Component {
-  state = {settings: {license: 5, showUnusableBands: false}};
+  state = {settings: {license: null, showUnusableBands: null}};
 
   constructor() {
     super();
