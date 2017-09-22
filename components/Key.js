@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {ScrollView, StyleSheet, View, Text} from 'react-native';
-import {modes} from './LicenseBar';
+import modes from '../data/modes';
 
 class Key extends Component {
   getSwatch(mode) {
