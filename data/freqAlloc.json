@@ -610,6 +610,70 @@
     ]
   },
   {
+    "bandName": "10 Meters (28 MHz)",
+    "bounds": {
+      "lower": 28.0,
+      "upper": 29.7
+    },
+    "notes": [],
+    "subBands": [
+      {
+        "bounds": {
+          "lower": 28.0,
+          "upper": 28.3
+        },
+        "restrictions": [
+          {
+            "minClass": 1,
+            "modes": [
+              "RTTY",
+              "data",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 28.3,
+          "upper": 28.5
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "phone",
+              "image"
+            ]
+          },
+          {
+            "minClass": 1,
+            "modes": [
+              "SSB",
+              "CW"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "lower": 28.5,
+          "upper": 29.7
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "phone",
+              "image",
+              "CW"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "bandName": "6 Meters (50 MHz)",
     "bounds": {
       "lower": 50,
