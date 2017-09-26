@@ -3,6 +3,33 @@ import {ScrollView, StyleSheet, View, Text} from 'react-native';
 import BandBar from './BandBar';
 
 class Band extends Component {
+  calculateBandwidthChannelized() {
+    let totalBandWidth = this.props.band.bounds.upper - this.props.band.bounds.lower;
+    let subsWithSpaces = [];
+    let lastLowerFreq = this.props.band.bounds.lower;
+    this.props.band.subBands.map((sub, key, subBands) => {
+      // create empty subband as spacer
+      let bandWidth = sub.bounds.channel.center - lastLowerFreq;
+      let percentOfBand = ((bandWidth / totalBandWidth) * 100) - 10;
+
+      let spacer = {
+        bounds: {},
+        restrictions:[
+          {minClass: 10}
+        ],
+        notes: ['_spacer_'],
+        percentOfBand: percentOfBand
+      };
+
+      // set width for channel
+      sub.percentOfBand = 5;
+
+      subsWithSpaces.push(spacer, sub);
+      lastLowerFreq = sub.bounds.channel.center;
+    });
+    this.props.band.subBands = subsWithSpaces;
+  }
+
   getFreqTextDetailed() {
     return (
       <View style={styles.freqContainerDetailed}>
@@ -40,11 +67,15 @@ class Band extends Component {
   }
 
   render() {
-    let totalBandWidth = this.props.band.bounds.upper - this.props.band.bounds.lower;
-    this.props.band.subBands.map((sub, key) => {
-      let subBandWidth = sub.bounds.upper - sub.bounds.lower;
-      sub.percentOfBand = (subBandWidth / totalBandWidth) * 100;
-    });
+    if (this.props.band.attributes == "channelized") {
+      this.calculateBandwidthChannelized();
+    } else {
+      let totalBandWidth = this.props.band.bounds.upper - this.props.band.bounds.lower;
+      this.props.band.subBands.map((sub, key) => {
+        let subBandWidth = sub.bounds.upper - sub.bounds.lower;
+        sub.percentOfBand = (subBandWidth / totalBandWidth) * 100;
+      });
+    }
 
     return (
       <View style={styles.container}>

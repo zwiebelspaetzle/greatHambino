@@ -11,7 +11,11 @@ class SubBandBar extends Component {
       }
     });
     return (
-      <View style={[styles.subBandBar, {flexBasis: this.props.subBand.percentOfBand+'%'}]} >
+      <View style={[
+          (this.props.subBand.bounds.channel) ? styles.rounded : null,
+          styles.subBandBar,
+          {flexBasis: this.props.subBand.percentOfBand+'%'},
+        ]} >
         <LicenseBar modes={modes}></LicenseBar>
       </View>
     );
@@ -19,19 +23,14 @@ class SubBandBar extends Component {
 }
 
 const styles = StyleSheet.create({
+  rounded: {
+    borderRadius: 10,
+    overflow: 'hidden',
+  },
   subBandBar: {
-    // borderWidth: 1,
     display: 'flex',
     flexDirection: 'column',
   }
 });
-
-const modeColors = {
-  "RTTY": "green",
-  "data": "yellow",
-  "phone": "red",
-  "image": "black",
-  "CW": "blue"
-};
 
 export default SubBandBar;
