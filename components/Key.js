@@ -12,11 +12,13 @@ class Key extends Component {
       // key for a specific band
       let modesInBand = [];
       this.props.band.subBands.map((sub) => {
-        sub.licenseModes.map((mode) => {
-          if (!modesInBand.includes(mode)) {
-            modesInBand.push(mode);
-          }
-        });
+        if (!sub.spacer) {
+          sub.licenseModes.map((mode) => {
+            if (!modesInBand.includes(mode)) {
+              modesInBand.push(mode);
+            }
+          });
+        }
       });
       return modesInBand;
     } else {

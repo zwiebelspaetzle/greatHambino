@@ -189,6 +189,185 @@
     ]
   },
   {
+    "bandName": "60 Meters (5.3 MHz)",
+    "channelized": true,
+    "bounds": {
+      "lower": 5.330,
+      "upper": 5.406
+    },
+    "notes": [
+      "General, Advanced, and Amateur Extra licensees may operate on these five channels on a secondary basis with a maximum effective radiated power (ERP) of 100 W PEP relative to a half-wave dipole. Permitted operating modes include upper sideband voice (USB), CW, RTTY, PSK31 and other digital modes such as PACTOR III. Only one signal at a time is permitted on any channel.",
+      "100 W PEP Max"
+    ],
+    "subBands": [
+      {
+        "bounds": {
+          "channel": {
+            "center": 5.3305
+          }
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "USB"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "channel": {
+            "center": 5.332,
+            "bandwidth": 0.0028
+          }
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "CW",
+              "RTTY",
+              "data"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "channel": {
+            "center": 5.3465
+          }
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "USB"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "channel": {
+            "center": 5.348,
+            "bandwidth": 0.0028
+          }
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "CW",
+              "RTTY",
+              "data"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "channel": {
+            "center": 5.3570
+          }
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "USB"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "channel": {
+            "center": 5.3585,
+            "bandwidth": 0.0028
+          }
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "CW",
+              "RTTY",
+              "data"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "channel": {
+            "center": 5.3715
+          }
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "USB"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "channel": {
+            "center": 5.373,
+            "bandwidth": 0.0028
+          }
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "CW",
+              "RTTY",
+              "data"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "channel": {
+            "center": 5.4035
+          }
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "USB"
+            ]
+          }
+        ]
+      },
+      {
+        "bounds": {
+          "channel": {
+            "center": 5.405,
+            "bandwidth": 0.0028
+          }
+        },
+        "restrictions": [
+          {
+            "minClass": 3,
+            "modes": [
+              "CW",
+              "RTTY",
+              "data"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "bandName": "40 Meters (7 MHz)",
     "bounds": {
       "lower": 7,
@@ -808,7 +987,7 @@
               "CW"
             ],
             "notes": ["Novice license limited to 25 W."]
-          },
+          }
         ]
       }
     ]
