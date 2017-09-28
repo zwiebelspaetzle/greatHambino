@@ -8,29 +8,64 @@ class Band extends Component {
     let subsWithSpaces = [];
     let lastLowerFreq = this.props.band.bounds.lower;
     this.props.band.subBands.map((sub, key, subBands) => {
-      // create empty subband as spacer
-      let bandWidth = sub.bounds.channel.center - lastLowerFreq;
-      let percentOfBand = ((bandWidth / totalBandWidth) * 100) - 10;
+      // ignore pre-existing spacers
+      if (!sub.spacer) {
+        // create empty subband as spacer
+        let bandWidth = sub.bounds.channel.center - lastLowerFreq;
+        let percentOfBand = ((bandWidth / totalBandWidth) * 100) - 2.1;
 
-      let spacer = {
-        bounds: {},
-        restrictions:[
-          {minClass: 10}
-        ],
-        notes: ['_spacer_'],
-        percentOfBand: percentOfBand
-      };
+        let spacer = {
+          spacer: true,
+          bounds: {},
+          restrictions:[
+            {minClass: 10}
+          ],
+          percentOfBand: percentOfBand
+        };
 
-      // set width for channel
-      sub.percentOfBand = 5;
+        // set width for channel
+        sub.percentOfBand = 2;
 
-      subsWithSpaces.push(spacer, sub);
-      lastLowerFreq = sub.bounds.channel.center;
+        subsWithSpaces.push(spacer, sub);
+        lastLowerFreq = sub.bounds.channel.center;
+      }
     });
     this.props.band.subBands = subsWithSpaces;
   }
 
+  getFreqTextChannelized() {
+    let channels = this.props.band.subBands.map((sub, key) => {
+      if (sub.spacer) {
+        return;
+      }
+      let modes = [];
+      let licenses = sub.restrictions.map((restriction, key) => {
+        if (restriction.minClass <= this.props.currentLicense) {
+          modes = modes.concat(restriction.modes);
+        }
+      });
+      return (
+        <View key={key} style={styles.freqContainerChannelized}>
+          <View style={{flexBasis: 50}}>
+            <Text style={[styles.freqText, styles.freqTextDetailed]}>{sub.bounds.channel.center.toFixed(4)}</Text>
+          </View>
+          <Text style={[styles.freqText, styles.freqTextDetailed]}>{modes.join(', ')}</Text>
+        </View>
+      );
+    })
+    return (
+      <View>
+        <Text>Channels</Text>
+        {channels}
+      </View>
+    );
+  }
+
   getFreqTextDetailed() {
+    if (this.props.band.channelized) {
+      return this.getFreqTextChannelized();
+    }
+
     return (
       <View style={styles.freqContainerDetailed}>
         {
@@ -67,7 +102,7 @@ class Band extends Component {
   }
 
   render() {
-    if (this.props.band.attributes == "channelized") {
+    if (this.props.band.channelized) {
       this.calculateBandwidthChannelized();
     } else {
       let totalBandWidth = this.props.band.bounds.upper - this.props.band.bounds.lower;
@@ -100,6 +135,9 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     display: 'flex',
     marginBottom: 10
+  },
+  freqContainerChannelized: {
+    flexDirection: 'row'
   },
   freqContainerDetailed: {
     display: 'flex',

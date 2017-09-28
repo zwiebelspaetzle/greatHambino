@@ -190,7 +190,7 @@
   },
   {
     "bandName": "60 Meters (5.3 MHz)",
-    "attributes": "channelized",
+    "channelized": true,
     "bounds": {
       "lower": 5.330,
       "upper": 5.406
@@ -226,7 +226,6 @@
           {
             "minClass": 3,
             "modes": [
-              "USB",
               "CW",
               "RTTY",
               "data"
@@ -260,7 +259,6 @@
           {
             "minClass": 3,
             "modes": [
-              "USB",
               "CW",
               "RTTY",
               "data"
@@ -294,7 +292,6 @@
           {
             "minClass": 3,
             "modes": [
-              "USB",
               "CW",
               "RTTY",
               "data"
@@ -328,7 +325,6 @@
           {
             "minClass": 3,
             "modes": [
-              "USB",
               "CW",
               "RTTY",
               "data"
@@ -362,7 +358,6 @@
           {
             "minClass": 3,
             "modes": [
-              "USB",
               "CW",
               "RTTY",
               "data"
